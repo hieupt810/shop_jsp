@@ -27,7 +27,6 @@ public class CategoryDAO {
 		}
 	}
 
-
 	public static List<Category> getList() {
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from category";
@@ -57,7 +56,6 @@ public class CategoryDAO {
 		// dao.delCategory(10);
 		dao.updateCategory(c);
 	}
-
 
 	public static void delCategory(int ma_the_loai) {
 		Connection con = DBConnect.getConnecttion();
@@ -94,7 +92,6 @@ public class CategoryDAO {
 		}
 		return c;
 	}
-
 
 	public static void updateCategory(Category c) {
 		Connection con = DBConnect.getConnecttion();
