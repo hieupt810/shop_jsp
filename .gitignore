@@ -1,0 +1,7 @@
+# File
+**/.DS_Store
+**/*.class
+
+# Folder
+build/
+target/
