@@ -1,30 +1,32 @@
 package model;
 
 public class Cart {
-    private Product product;
-    private int quantity;
 
-    public Cart() {
-    }
+	private Product p;
+	private int quantity;
 
-    public Cart(Product product, int quantity) {
-        this.product = product;
-        this.quantity = quantity;
-    }
+	public Cart() {
+	}
 
-    public Product getProduct() {
-        return this.product;
-    }
+	public Cart(Product p, int quantity) {
+		this.p = p;
+		this.quantity = quantity;
+	}
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+	public Product getP() {
+		return p;
+	}
 
-    public int getQuantity() {
-        return this.quantity;
-    }
+	public void setP(Product p) {
+		this.p = p;
+	}
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 }
