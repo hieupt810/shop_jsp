@@ -13,7 +13,6 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 	<servlet>
-		<description></description>
 		<display-name>RegisterServlet</display-name>
 		<servlet-name>RegisterServlet</servlet-name>
 		<servlet-class>controller.RegisterServlet</servlet-class>
@@ -23,7 +22,6 @@
 		<url-pattern>/RegisterServlet</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<description></description>
 		<display-name>LoginServlet</display-name>
 		<servlet-name>LoginServlet</servlet-name>
 		<servlet-class>controller.LoginServlet</servlet-class>
@@ -33,7 +31,6 @@
 		<url-pattern>/LoginServlet</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<description></description>
 		<display-name>GioHangServlet</display-name>
 		<servlet-name>GioHangServlet</servlet-name>
 		<servlet-class>controller.GioHangServlet</servlet-class>
@@ -43,37 +40,6 @@
 		<url-pattern>/GioHangServlet</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<description></description>
-		<display-name>ThemTheLoai</display-name>
-		<servlet-name>ThemTheLoai</servlet-name>
-		<servlet-class>controller.ThemTheLoai</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ThemTheLoai</servlet-name>
-		<url-pattern>/ThemTheLoai</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>SuaTheLoai</display-name>
-		<servlet-name>SuaTheLoai</servlet-name>
-		<servlet-class>controller.SuaTheLoai</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>SuaTheLoai</servlet-name>
-		<url-pattern>/SuaTheLoai</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>XoaTheLoai</display-name>
-		<servlet-name>XoaTheLoai</servlet-name>
-		<servlet-class>controller.XoaTheLoai</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>XoaTheLoai</servlet-name>
-		<url-pattern>/XoaTheLoai</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
 		<display-name>LogoutServlet</display-name>
 		<servlet-name>LogoutServlet</servlet-name>
 		<servlet-class>controller.LogoutServlet</servlet-class>
@@ -83,7 +49,6 @@
 		<url-pattern>/LogoutServlet</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<description></description>
 		<display-name>ResetPassword</display-name>
 		<servlet-name>ResetPassword</servlet-name>
 		<servlet-class>controller.ResetPassword</servlet-class>
@@ -93,7 +58,6 @@
 		<url-pattern>/ResetPassword</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<description></description>
 		<display-name>UpdateUser</display-name>
 		<servlet-name>UpdateUser</servlet-name>
 		<servlet-class>controller.UpdateUser</servlet-class>
@@ -103,7 +67,6 @@
 		<url-pattern>/UpdateUser</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<description></description>
 		<display-name>SearchServlet</display-name>
 		<servlet-name>SearchServlet</servlet-name>
 		<servlet-class>controller.SearchServlet</servlet-class>
@@ -113,7 +76,6 @@
 		<url-pattern>/SearchServlet</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<description></description>
 		<display-name>ConfirmServlet</display-name>
 		<servlet-name>ConfirmServlet</servlet-name>
 		<servlet-class>controller.ConfirmServlet</servlet-class>

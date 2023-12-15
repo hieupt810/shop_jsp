@@ -194,8 +194,7 @@
 	border-bottom: 5px solid transparent;
 }
 /* == */
-@
--webkit-keyframes moveFromTop {from { opacity:0;
+@-webkit-keyframes moveFromTop {from { opacity:0;
 	-webkit-transform: translateY(200%);
 	-moz-transform: translateY(200%);
 	-ms-transform: translateY(200%);
@@ -213,8 +212,7 @@ to {
 }
 
 }
-@
--webkit-keyframes moveFromLeft {from { opacity:0;
+@-webkit-keyframes moveFromLeft {from { opacity:0;
 	-webkit-transform: translateX(200%);
 	-moz-transform: translateX(200%);
 	-ms-transform: translateX(200%);
@@ -232,8 +230,7 @@ to {
 }
 
 }
-@
--webkit-keyframes moveFromRight {from { opacity:0;
+@-webkit-keyframes moveFromRight {from { opacity:0;
 	-webkit-transform: translateX(-200%);
 	-moz-transform: translateX(-200%);
 	-ms-transform: translateX(-200%);
