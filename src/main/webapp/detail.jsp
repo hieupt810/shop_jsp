@@ -55,8 +55,10 @@ import="java.text.NumberFormat"%>
         margin: auto;
         width: 1200px;
         display: flex;
-        flex-direction: column;
         padding: 32px 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
       }
 
       footer {
@@ -84,10 +86,57 @@ import="java.text.NumberFormat"%>
         margin-bottom: 6px;
       }
 
+      .img-container {
+        width: 30%;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      .img-container img {
+        height: auto;
+        object-fit: cover;
+      }
+
+      .info-container {
+        width: 50%;
+      }
+
       .info-container > h4 {
         text-transform: uppercase;
         font-size: 28px;
         font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .info-container > h5 {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+
+      form > * {
+        display: none;
+      }
+
+      form > input[type="submit"] {
+        display: block;
+      }
+
+      .cart-button {
+        display: flex;
+        color: white;
+        overflow: hidden;
+        margin-top: 32px;
+        font-weight: 600;
+        padding: 10px 14px;
+        width: fit-content;
+        border-radius: 12px;
+        align-items: center;
+        flex-direction: row;
+        background-color: #dc2526;
+      }
+
+      .cart-button > * + * {
+        margin-left: 8px;
       }
     </style>
   </head>
@@ -142,61 +191,31 @@ import="java.text.NumberFormat"%>
           <%=nf.format(productDAO.getProduct(Integer.parseInt(ma_san_pham)).getGia_ban())%>
           VNĐ
         </h5>
+
+        <% if(username != null) { %>
+        <div class="cart-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-cart"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+            />
+          </svg>
+          <form action="GioHangServlet" method="post">
+            <input type="number" min="1" value="1" name="soluong" />
+            <input type="hidden" value="setCart" name="command" />
+            <input type="hidden" value="<%=ma_san_pham %>" name="ma_san_pham" />
+            <input type="submit" value="Thêm vào giỏ hàng" />
+          </form>
+        </div>
+        <%} %>
       </div>
     </main>
-    <!-- <% if(username != null) { %>
-      <div
-        style="
-          margin-left: auto;
-          margin-right: auto;
-          text-align: center;
-          margin-top: 10px;
-          padding: 10px;
-          clear: both;
-        "
-      >
-        <a href="#"><img src="images/giohang.png" /></a>
-        <form action="GioHangServlet" method="post">
-          <input type="number" min="1" value="1" name="soluong" />
-          <input type="hidden" value="setCart" name="command" />
-          <input type="hidden" value="<%=ma_san_pham %>" name="ma_san_pham" />
-          <input type="submit" value="Thêm vào giỏ hàng" />
-        </form>
-      </div>
-      <%} else { %>
-      <div
-        style="
-          margin-left: auto;
-          margin-right: auto;
-          text-align: center;
-          margin-top: 10px;
-          padding: 10px;
-          clear: both;
-        "
-      >
-        <a href="login.jsp"><img src="images/giohang.png" /></a>
-      </div>
-      <%} %>
-      <div class="left-3">
-        <article>
-          <input type="checkbox" id="read_more" role="button" />
-          <label
-            for="read_more"
-            onclick=""
-            style="width: 770px; margin-left: 150px; margin-right: auto"
-            ><span>Xem thông tin chi tiết</span> <span>Đóng</span></label
-          >
-          <section>
-            <table>
-              <tr rowspan="2">
-                <td class="detail-1">Thông chi tiết</td>
-                <td class="detail-2">Đang cập nhật</td>
-              </tr>
-            </table>
-          </section>
-        </article>
-      </div>
-    </div> -->
 
     <div class="footer-container">
       <footer>
