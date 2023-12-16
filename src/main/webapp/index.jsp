@@ -131,7 +131,6 @@
       <nav>
         <div>
           <a href="index.jsp">Trang chủ</a>
-          <a href="product.jsp">Sản phẩm</a>
           <a href="cart.jsp">Giỏ hàng</a>
         </div>
 
@@ -156,7 +155,7 @@
           <%
 				    } else {
 			    %>
-          <a href="register.jsp"><span>Đăng nhập</span></a>
+          <a href="login.jsp"><span>Đăng nhập</span></a>
           <%
 				    }
 			    %>
