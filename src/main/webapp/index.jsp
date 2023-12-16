@@ -132,6 +132,7 @@
         <div>
           <a href="index.jsp">Trang chủ</a>
           <a href="cart.jsp">Giỏ hàng</a>
+          <a href="search_page.jsp">Tìm kiếm</a>
         </div>
 
         <div>

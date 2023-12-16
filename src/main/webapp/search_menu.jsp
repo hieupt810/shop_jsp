@@ -7,9 +7,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Menu dọc</title>
-<link rel="stylesheet" href="css/category.css" />
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 	<%
@@ -26,13 +26,13 @@
                         <p>
                         <label for="tensp">Tên sản phẩm</label>
                         <br>
-                        <input accept-charset="utf-8" type="text"  name="ten_san_pham" style="width:97%">
+                        <input accept-charset="utf-8" type="text" name="ten_san_pham" style="width:97%; border: 1px solid #e4e4e7; border-radius: 2px;">
                         </p>
                         <p>
                         <label for="theloai">Thể loại</label>
                         <br>
                         <select accept-charset="utf-8" name="ten_the_loai" style="width:100%">
-                        	<option value="" selected="selected">--Chọn thể loại--</option>
+                        	<option style="border: 1px solid #e4e4e7; border-radius: 2px;" value="" selected="selected">--Chọn thể loại--</option>
                         	<%
 				for (Category c : list) {
 					
