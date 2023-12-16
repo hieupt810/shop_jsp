@@ -6,149 +6,202 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.text.NumberFormat"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="model.User"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Giỏ hàng</title>
-<link rel="stylesheet" href="css/cart.css" />
-<link rel="stylesheet" href="css/menu.css" />
-<link rel="stylesheet" href="css/main.css" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<style type="text/css">
-#main {
-	width: 1060px;
-	padding: 0;
-	margin-left: auto;
-	margin-right: auto;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Giỏ hàng</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-#head {
-	height: 200px;
-	background-color: #F5F5F5;
-	border: 1px solid #CDCDCD;
-	margin-bottom: 5px;
-	margin-top: 5px;
-}
+      .banner-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #e4e4e7;
+      }
 
-#head-link {
-	height: 50px;
-	line-height: 30px;
-	border: 1px solid #CDCDCD;
-	background-color: #F5F5F5;
-	margin-bottom: 5px;
-	clear: both;
-}
+      .banner {
+        width: 1200px;
+        object-fit: cover;
+      }
 
-#content {
-	width: 1060px;
-	min-height: 430px;
-	border: 1px solid #CDCDCD;
-	float: left;
-	margin-bottom: 5px;
-	clear: both;
-}
+      .nav-container {
+        border-bottom: 1px solid #e4e4e7;
+      }
 
-#footer {
-	height: 50px;
-	clear: both;
-	border: 1px solid #CDCDCD;
-	background-color: #F8F8FF;
-	margin-bottom: 5px;
-}
-</style>
-</head>
-<body>
-	<%
+      .footer-container {
+        border-top: 1px solid #e4e4e7;
+      }
+
+      nav {
+        margin: auto;
+        width: 1200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav > div {
+        display: flex;
+        flex-direction: row;
+      }
+
+      nav > div > a {
+        padding: 12px 20px;
+        list-style: none;
+      }
+
+      main {
+        margin: auto;
+        padding: 32px 0;
+        width: 1200px;
+      }
+
+      footer {
+        margin: auto;
+        width: 1200px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
+      footer > div {
+        width: 50%;
+        padding: 24px 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      footer > div > h5 {
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      footer > div > span {
+        margin-bottom: 6px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      td, th {
+        width: 20%;
+        font-weight: normal;
+        border: 1px solid #e4e4e7;
+      }
+
+      .tr-title > * {
+        padding: 4px;
+        color: white;
+        font-weight: 700 !important;
+        background-color: #04AA6D;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <%
 		String username = null;
-	Cookie[] cookies = request.getCookies();
-	if (cookies != null) {
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("username"))
-		username = cookie.getValue();
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("username"))
+					username = cookie.getValue();
+			}
 		}
-	}
 	%>
-	<div id="main">
-		<div id="head">
-			<img src="images/banner.jpg" width="1057px" height="200px" />
-		</div>
-		<div id="head-link">
-			<div id='menungang'>
-				<ul>
-					<li class='last'><a href="index.jsp"><span>Trang
-								chủ</span></a></li>
-					<li class='last'><a href="product.jsp"><span>Sản
-								phẩm</span></a></li>
-					<li class='last'><a href="cart.jsp"><span>Giỏ hàng</span></a></li>
-					<li class='last'><a href="search_page.jsp"><span>Tìm
-								kiếm</span></a></li>
-					<li class='last' style="float: right;"><a href="login.jsp"><span>Đăng
-								xuất</span></a></li>
-					<li class='last' style="float: right;"><a
-						href="update_user.jsp?username=<%=username%>"><span><%=username%></span></a></li>
-				</ul>
-			</div>
-		</div>
-		<div id="content">
+    <div class="nav-container">
+      <nav>
+        <div>
+          <a href="index.jsp">Trang chủ</a>
+          <a href="cart.jsp">Giỏ hàng</a>
+        </div>
 
+        <div>
+          <a href="update_user.jsp?username=<%=username%>"
+            >Xin chào, <%=username%></a
+          >
+          <a href="LogoutServlet"><span>Đăng xuất</span></a>
+        </div>
+      </nav>
+    </div>
 
-			<div class="shopping-cart">
+    <div class="banner-container">
+      <img src="images/banner.jpg" class="banner" />
+    </div>
 
-				<div class="column-labels">
-					<label class="product-image">Hình ảnh</label> <label
-						class="product-details">Sản phẩm</label> <label
-						class="product-price">Ngày mua</label> <label
-						class="product-quantity">Số lượng</label><label
-						class="product-line-price">Đã thanh toán</label>
-				</div>
-				<%
-					User u = UserBO.getUser(username);
+    <main>
+      <table>
+        <tr class="tr-title">
+          <th>Hình ảnh</th>
+          <th>Sản phẩm</th>
+          <th>Ngày mua</th>
+          <th>Số lượng</th>
+          <th>Đã thanh toán</th>
+        </tr>
 
-				List<History> L = HistoryBO.getList(u.getUser_id());
-				NumberFormat nf = NumberFormat.getInstance();
-				nf.setMinimumIntegerDigits(0);
-				%>
-				<%
-					if (L != null) {
-					for (History h : L) {
-				%>
-				<div class="product">
-					<div class="product-image">
-						<img
-							src="sanpham/<%=ProductBO.getProduct(h.getMa_san_pham()).getHinh_anh()%>">
-					</div>
-					<div class="product-details">
-						<div class="product-title">
-							<%=ProductBO.getProduct(h.getMa_san_pham()).getTen_san_pham()%>
-						</div>
-						<p class="product-description"></p>
-					</div>
-					<div class="product-price"><%=h.getNgay_mua()%>
-					</div>
-					<div class="product-quantity cart_quantity_button">
-						<%=h.getSo_luong()%>
-					</div>
-					<div class="product-line-price" style="text-align: right"><%=nf.format(ProductBO.getProduct(h.getMa_san_pham()).getGia_ban())%>
-						VNĐ
+        <%
+          User u = UserBO.getUser(username);
+  
+          List<History> L = HistoryBO.getList(u.getUser_id());
+          NumberFormat nf = NumberFormat.getInstance();
+          nf.setMinimumIntegerDigits(0);
+        %>
 
+        <%
+          if (L != null) {
+            for (History h : L) {
+        %>
+        <tr>
+          <th>
+            <img src="sanpham/<%=ProductBO.getProduct(h.getMa_san_pham()).getHinh_anh()%>">
+          </th>
+          <th>
+            <%=ProductBO.getProduct(h.getMa_san_pham()).getTen_san_pham()%>
+          </th>
+          <th>
+            <%=h.getNgay_mua()%>
+          </th>
+          <th>
+            <%=h.getSo_luong()%>
+          </th>
+          <th>
+            <%=nf.format(ProductBO.getProduct(h.getMa_san_pham()).getGia_ban())%> VNĐ
+          </th>
+        </tr>
+        <% } } %>
+      </table>
+    </main>
 
-					</div>
+    <div class="footer-container">
+      <footer>
+        <div>
+          <h5>Học phần</h5>
+          <span>Công nghệ Web</span>
+        </div>
 
-				</div>
-				<%
-					}
-				}
-				%>
-
-
-			</div>
-
-		</div>
-		<div id="footer"><jsp:include page="footer.jsp"></jsp:include></div>
-	</div>
-</body>
+        <div>
+          <h5>Sinh viên thực hiện</h5>
+          <span>Phạm Trung Hiếu - 21TCLC_Nhat1</span>
+          <span>Đặng Ngọc Nam - 21TCLC_Nhat1</span>
+          <span>Nguyễn Văn Bách - 21TCLC_Nhat1</span>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>

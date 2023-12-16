@@ -3,8 +3,7 @@
 <%@page import="dao.ProductDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.text.NumberFormat"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +12,6 @@
 <link rel="stylesheet" href="css/cart.css" />
 <link rel="stylesheet" href="css/menu.css" />
 <link rel="stylesheet" href="css/main.css" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
 <style type="text/css">
 #main {
 	width: 1060px;
