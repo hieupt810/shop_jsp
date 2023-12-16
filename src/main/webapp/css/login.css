@@ -2,9 +2,9 @@
 body {
 	background-color: rgba(244, 91, 105, 1);
 	font-family: 'Asap', sans-serif;
-  }
-  
-  .login {
+}
+
+.login {
 	overflow: hidden;
 	background-color: white;
 	padding: 40px 30px 30px 30px;
@@ -16,9 +16,9 @@ body {
 	transform: translate(-50%, -50%);
 	transition: transform 300ms, box-shadow 300ms;
 	box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
-  }
-  
-  .login::before, .login::after {
+}
+
+.login::before, .login::after {
 	content: '';
 	position: absolute;
 	width: 600px;
@@ -28,23 +28,23 @@ body {
 	border-bottom-left-radius: 35%;
 	border-bottom-right-radius: 40%;
 	z-index: -1;
-  }
-  
-  .login::before {
+}
+
+.login::before {
 	left: 40%;
 	bottom: -130%;
 	background-color: rgba(69, 105, 144, 0.15);
 	animation: wawes 6s infinite linear;
-  }
-  
-  .login::after {
+}
+
+.login::after {
 	left: 35%;
 	bottom: -125%;
 	background-color: rgba(2, 128, 144, 0.2);
 	animation: wawes 7s infinite;
-  }
-  
-  .login > input {
+}
+
+.login > input {
 	font-family: 'Asap', sans-serif;
 	display: block;
 	border-radius: 5px;
@@ -54,39 +54,37 @@ body {
 	border: 0;
 	padding: 10px 10px;
 	margin: 15px -10px;
-  }
-  
-  .login > button {
+}
+
+.login > button {
 	font-family: 'Asap', sans-serif;
 	cursor: pointer;
 	color: #fff;
 	font-size: 16px;
 	text-transform: uppercase;
-	width: 80px;
+	width: 120px;
 	border: 0;
-	padding: 10px 0;
+	padding: 10px 10px;
 	margin-top: 10px;
 	margin-left: -5px;
 	border-radius: 5px;
 	background-color: rgba(244, 91, 105, 1);
 	transition: background-color 300ms;
-  }
-  
-  .login > button:hover {
+}
+
+.login > button:hover {
 	background-color: rgba(204, 72, 86, 1);
-  }
-  
-  @keyframes wawes {
+}
+
+@keyframes wawes {
 	from { transform: rotate(0); }
 	to { transform: rotate(360deg); }
-  }
-  
-  a {
-	text-decoration: none;
-	color: rgba(255, 255, 255, 0.6);
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-	font-size: 12px;
-  }
-  
+}
+
+h2 {
+	color: rgba(244, 91, 105, 1);
+}
+
+.recommend-register {
+	margin-top: 10px;
+}

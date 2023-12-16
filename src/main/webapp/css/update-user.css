@@ -1,0 +1,114 @@
+body {
+    background-color: #3dcc63;
+    font-family: 'Asap', sans-serif;
+}
+
+.update {
+    overflow: hidden;
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    transform: translate(-50%, -50%);
+    transition: transform 300ms, box-shadow 300ms;
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+}
+
+.blob {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #3dcc63;
+    border-radius: 50%;
+    z-index: 2;
+    animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.update::before,
+.update::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 40% 45% 40% 35%;
+    z-index: -1;
+}
+
+.update::before {
+    left: 40%;
+    bottom: -130%;
+    background-color: rgba(69, 105, 144, 0.15);
+    animation: waves 6s infinite linear;
+}
+
+.update::after {
+    left: 35%;
+    bottom: -125%;
+    background-color: rgba(2, 128, 144, 0.2);
+    animation: waves 7s infinite;
+}
+
+.update > input {
+    font-family: 'Asap', sans-serif;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    padding: 10px 10px;
+    margin: 15px -10px;
+}
+
+.update > button {
+    font-family: 'Asap', sans-serif;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 120px;
+    border: 0;
+    padding: 10px 10px;
+    margin-top: 10px;
+    margin-left: -5px;
+    border-radius: 5px;
+    background-color: #3dcc63;
+    transition: background-color 300ms;
+}
+
+.update > button:hover {
+    background-color: #2a783f;
+}
+
+h3 {
+    color: red;
+}
+
+h2 {
+    color: #3dcc63;
+}
+
+a {
+    color: #3dcc63;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.return-to-index {
+    margin-top: 10px;
+}

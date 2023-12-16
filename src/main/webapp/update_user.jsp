@@ -8,8 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="css/login.css" rel='stylesheet' type='text/css' />
-<title>Đăng kí tài khoản</title>
+<link href="css/update-user.css" rel='stylesheet' type='text/css' />
+<title>Cập nhật tài khoản</title>
 </head>
 <body>
 	<%
@@ -20,62 +20,46 @@
 			String username= request.getParameter("username");
 			User u= UserBO.getUser(username);
 	%>
+			<form action="UpdateUser" method="post" class="update">
+				<h2>CẬP NHẬT TÀI KHOẢN</h2>
+				<h3 style="color: red"><%=err%></h3>
 
-	<!--/start-login-two-->
-	<div class="login-02">
-		<div class="two-login  hvr-float-shadow">
-			<div class="two-login-head">
-				<img src="images/top-note.png" alt="" />
-				<h2>Cập nhật thông tin</h2>
-				<lable></lable>
-			</div>
-			<form action="UpdateUser" method="post">
-				<li style="color: red"><%=err%></li>
-				Tên đăng nhập
-				<li><input type="text" class="text"
-					value="<%=u.getUsername()%>" readonly name="username"><a
-					href="#" class=" icon2 user2"></a></li>
-				Mật khẩu
-				<li><input type="password" value="" 
-					name="password"><a href="#" class=" icon2 lock2"></a></li>
-				Ngày sinh
-				<li><input type="date" value="<%=u.getNgaysinh()%>"
+				<input type="text" class="text"
+					value="<%=u.getUsername()%>" readonly name="username">
+
+				<input type="password" value=""  placeholder="Mật khẩu"
+					name="password">
+
+				<input type="date" value="<%=u.getNgaysinh()%>" placeholder="Ngày sinh"
 					onfocus="this.value = '';"
 					onblur="if (this.value == '') {this.value = '<%=u.getNgaysinh() %>';}"
-					name="ngaysinh"><a href="#" class=" icon2 lock2"></a></li>
-				Giới tính
-				<li><input type="text" value="<%=u.getGioitinh() %>"
+					name="ngaysinh">
+
+				<input type="text" value="<%=u.getGioitinh() %>" placeholder="Giới tính"
 					list="exampleList" onfocus="this.value = '';"
 					onblur="if (this.value == '') {this.value = '<%=u.getGioitinh() %>';}"
 					name="gioitinh"> <datalist id="exampleList">
 					<option value="Nam">
 					<option value="Nữ">
-					</datalist><a href="#" class=" icon2 lock2"></a></li>
-				Email
-				<li><input type="text" value="<%= u.getEmail() %>" onfocus="this.value = '';"
-					onblur="if (this.value == '') {this.value = '<%=u.getEmail() %>';}" name="email"><a
-					href="#" class=" icon2 lock2"></a></li>
-				Số điện thoại
-				<li><input type="text" value="<%=u.getSdt() %>"
+					</datalist>
+
+				<input type="text" value="<%= u.getEmail() %>" placeholder="Email" onfocus="this.value = '';"
+					onblur="if (this.value == '') {this.value = '<%=u.getEmail() %>';}" name="email">
+
+				<input type="text" placeholder="Số điện thoại" value="<%=u.getSdt() %>"
 					onfocus="this.value = '';"
-					onblur="if (this.value == '') {this.value = '<%=u.getSdt() %>';}" name="sdt"><a
-					href="#" class=" icon2 lock2"></a></li>
-				Địa chỉ
-				<li><input type="text" value="<%=u.getDiachi() %>"
+					onblur="if (this.value == '') {this.value = '<%=u.getSdt() %>';}" name="sdt">
+
+				<input type="text" placeholder="Địa chỉ" value="<%=u.getDiachi() %>"
 					onfocus="this.value = '';"
 					onblur="if (this.value == '') {this.value = '<%=u.getDiachi() %>';}"
-					name="diachi"><a href="#" class=" icon2 lock2"></a></li>
-
-				
-				<div class="submit two">
-					<input type="submit" value="CẬP NHẬT">
-					<input type="hidden" value="<%=u.getUser_id()%>" name="id">
-				</div>
-				<h5>
+					name="diachi">
+				<button type="submit" value="CẬP NHẬT">CẬP NHẬT</button>
+				<input type="hidden" value="<%=u.getUser_id()%>" name="id">
+				<div class="return-to-index">
 					<a href="index.jsp">Trở về</a>
-				</h5>
+					<div class="blob"></div>
+				</div>
 			</form>
-		</div>
-	</div>
 </body>
 </html>
