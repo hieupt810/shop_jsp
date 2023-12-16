@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="css/login.css" rel='stylesheet' type='text/css' />
+<link href="css/register.css" rel='stylesheet' type='text/css' />
 <title>Đăng kí tài khoản</title>
 </head>
 <body>
@@ -14,54 +14,37 @@
 			err = (String) request.getAttribute("err");
 		}
 	%>
-	<!--/start-login-two-->
-	<div class="login-02">
-		<div class="two-login  hvr-float-shadow">
-			<div class="two-login-head">
-				<img src="images/top-note.png" alt="" />
+			<form action="RegisterServlet" method="post" class="register">
 				<h2>Đăng ký</h2>
-				<lable></lable>
-			</div>
-			<form action="RegisterServlet" method="post">
-				<li style="color: red"><%=err%></li>
-				Tên người dùng
-				<li><input type="text" class="text" value=""
-					name="username"><a href="#" class=" icon2 user2"></a></li>
-				Mật khẩu	
-				<li><input type="password" value=""
-					name="password"><a href="#" class=" icon2 lock2"></a></li>
-				Ngày sinh
-				<li><input type="date" value=""
-					name="ngaysinh"><a href="#" class=" icon2 lock2"></a></li>
-				Giới tính
-				<li><input type="text" value="" list="exampleList"
+				<h4><%=err%></h4>
+				<input type="text" class="text" value="" placeholder="Tên người dùng"
+					name="username">
+
+				<input type="password" value="" placeholder="Mật khẩu"
+					name="password">
+
+				<input type="date" value="" placeholder="Ngày sinh"
+					name="ngaysinh">
+
+				<input type="text" value="" list="exampleList" placeholder="Giới tính"
 					name="gioitinh"> 
 					<datalist id="exampleList">
 					<option value="Nam">
 					<option value="Nữ">
-					</datalist><a href="#" class=" icon2 lock2"></a></li>
-				Email
-				<li><input type="text" value=""
-					name="email"><a href="#" class=" icon2 lock2"></a></li>
-				Số điện thoại
-				<li><input type="text" value=""				
-					name="sdt"><a href="#" class=" icon2 lock2"></a></li>
-				Địa chỉ
-				<li><input type="text" value=""
-					name="diachi"><a href="#" class=" icon2 lock2"></a></li>
-					
-				<div class="p-container">
-					<label class="checkbox two"><input type="checkbox"
-						name="checkbox" checked><i></i>Tôi đồng ý <a href="#">Điều khoản dịch vụ</a></label>
-				</div>
-				<div class="submit two">
-					<input type="submit" value="ĐĂNG KÝ">
-				</div>
+					</datalist>
+
+				<input type="text" value="" placeholder="Email"
+					name="email">
+
+					<input type="text" value="" placeholder="Số điện thoại"
+					name="sdt">
+
+					<input type="text" value="" placeholder="Địa chỉ"
+					name="diachi">
+					<button type="submit" value="ĐĂNG KÝ">Đăng ký </button>
 				<h5>
-					<a href="login.jsp">Đăng nhập</a>
+					Đã có tài khoản?<a href="login.jsp"> Đăng nhập </a>
 				</h5>
 			</form>
-		</div>
-	</div>
 </body>
 </html>
