@@ -16,7 +16,7 @@
 %>
 <form action="RegisterServlet" method="post" class="register">
 	<h2>Đăng ký</h2>
-	<h4><%=err%></h4>
+	<h4 style="color:red"><%=err%></h4>
 	<input type="text" class="text" value="" placeholder="Tên người dùng"
 		   name="username">
 
