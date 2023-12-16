@@ -19,7 +19,7 @@
 				<h4 style="color: red"><%=err%></h4>
 				<input type="text" class="text" value="" name="username" placeholder="Username">
 					<input type="password" value="" name="password" placeholder="Password">
-					<button type="submit" value="SIGN IN">SIGN IN</button>
+					<button type="submit" value="SIGN IN">Đăng nhập</button>
 				<div class="recommend-register">
 					Bạn muốn đăng ký tài khoản?<a href="register.jsp"> Đăng ký </a>
 				</div>
