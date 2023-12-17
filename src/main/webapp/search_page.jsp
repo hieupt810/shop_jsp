@@ -176,11 +176,11 @@
 					ProductDAO productDAO = new ProductDAO();
 								List<Product> list = new ArrayList<Product>();
 								list = productDAO.getList();
-								String ten_san_pham = "";
-								String ten_the_loai = "";
-								if (request.getParameter("ten_the_loai") != null && request.getParameter("ten_san_pham")!= null) {
-							ten_the_loai = request.getParameter("ten_the_loai");
-							ten_san_pham = request.getParameter("ten_san_pham");
+								String product_name = "";
+								String category_name = "";
+								if (request.getParameter("category_name") != null && request.getParameter("product_name")!= null) {
+							category_name = request.getParameter("category_name");
+							product_name = request.getParameter("product_name");
 								}
 								NumberFormat nf = NumberFormat.getInstance();
 								nf.setMinimumFractionDigits(0);
@@ -191,20 +191,20 @@
 					<h3><%=err %></h3>
 				<% } %>
 				
-				<%if(productDAO.searchList(ten_san_pham, ten_the_loai).size()==0 && err=="") {%>
+				<%if(productDAO.searchList(product_name, category_name).size()==0 && err=="") {%>
 					<h3>Không tìm thấy sản phẩm nào phù hợp</h3>
 					<%} %>
 				<div id="site-wrapper" style="float: left">
 					<ul class="products homepage">
 					
 						<%
-							if (ten_the_loai != null || ten_san_pham != null) {
-									for (Product p : productDAO.searchList(ten_san_pham, ten_the_loai)) {
+							if (category_name != null || product_name != null) {
+									for (Product p : productDAO.searchList(product_name, category_name)) {
 						%>
 
 						<div class="item">
 							<a
-							href="detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"> 
+							href="detail.jsp?product_id=<%=p.getMa_san_pham()%>"> 
 								<div class="img-container">
 									<img src="sanpham/<%=p.getHinh_anh()%>"/>
 								</div>

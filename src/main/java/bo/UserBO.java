@@ -1,12 +1,19 @@
 package bo;
 
-import model.User;
 import dao.UserDAO;
+import model.User;
 
 public class UserBO {
-
 	public void addUser(User u) {
 		UserDAO.addUser(u);
+	};
+
+	public static User getUser(String username) {
+		return UserDAO.getUser(username);
+	};
+
+	public static void updateUser(User u) {
+		UserDAO.updateUser(u);
 	};
 
 	public static boolean checkUser(String username) {
@@ -16,13 +23,4 @@ public class UserBO {
 	public boolean login(String username, String password) {
 		return UserDAO.login(username, password);
 	};
-
-	public static void updateUser(User u) {
-		UserDAO.updateUser(u);
-	};
-
-	public static User getUser(String username) {
-		return UserDAO.getUser(username);
-	};
-
 }

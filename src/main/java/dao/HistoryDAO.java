@@ -1,20 +1,16 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-import model.Category;
 import model.History;
 
 public class HistoryDAO {
-
 
 	public static void addHistory(History h) {
 		Connection con = DBConnect.getConnecttion();
@@ -34,13 +30,12 @@ public class HistoryDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-	}
 
+	}
 
 	public static List<History> getList(int id) {
 		Connection con = DBConnect.getConnecttion();
-		String sql = "select * from history where user_id='"+ id +"'";
+		String sql = "select * from history where user_id='" + id + "'";
 		List<History> list = new ArrayList<History>();
 		try {
 			PreparedStatement ps = (PreparedStatement) con
@@ -49,11 +44,11 @@ public class HistoryDAO {
 			while (rs.next()) {
 				int id_history = rs.getInt("id_history");
 				int user_id = rs.getInt("user_id");
-				int ma_san_pham = rs.getInt("ma_san_pham");
+				int product_id = rs.getInt("product_id");
 				Timestamp ngay_mua = rs.getTimestamp("ngay_mua");
 				int so_luong = rs.getInt("so_luong");
 				double thanh_tien = rs.getDouble("thanh_tien");
-				list.add(new History(id_history, user_id, ma_san_pham, ngay_mua, so_luong, thanh_tien));
+				list.add(new History(id_history, user_id, product_id, ngay_mua, so_luong, thanh_tien));
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -61,6 +56,5 @@ public class HistoryDAO {
 		}
 		return list;
 	}
-	
 
 }

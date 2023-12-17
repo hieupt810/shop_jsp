@@ -8,42 +8,24 @@ import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.User;
 import bo.UserBO;
+import model.User;
 
-/**
- * Servlet implementation class UpdateUser
- */
-//@WebServlet("/UpdateUser")
 public class UpdateUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public UpdateUser() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -52,26 +34,21 @@ public class UpdateUser extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		java.sql.Date ngaysinh = null;
-
 		try {
 			ngaysinh = new java.sql.Date(
 					(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("ngaysinh"))).getTime());
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		String gioitinh = request.getParameter("gioitinh");
 		String email = request.getParameter("email");
 		String sdt = request.getParameter("sdt");
 		String diachi = request.getParameter("diachi");
-
 		String err = "";
 		String url = "/update_user.jsp";
-
 		if (password.equals("") || email.equals("") || sdt.equals("") || diachi.equals("")) {
 			err += "Phải nhập đầy đủ thông tin!";
 		} else {
-
 			Pattern pattenObj = Pattern.compile(
 					"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 			Matcher matcherObj = pattenObj.matcher(email);
@@ -85,11 +62,9 @@ public class UpdateUser extends HttpServlet {
 				}
 			}
 		}
-
 		if (err.length() > 0) {
 			request.setAttribute("err", err);
 		}
-
 		try {
 			if (err.length() == 0) {
 				User u = new User(Integer.parseInt(user_id), username, password, ngaysinh, gioitinh, email, sdt, diachi,
@@ -106,5 +81,4 @@ public class UpdateUser extends HttpServlet {
 			response.sendRedirect("/register.jsp");
 		}
 	}
-
 }

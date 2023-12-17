@@ -48,7 +48,7 @@
 				for (Category c : list) {		
 			%>
 			<div>
-				<a href="index.jsp?ma_the_loai=<%=c.getMa_the_loai()%>">
+				<a href="index.jsp?category_id=<%=c.getMa_the_loai()%>">
 					<strong><%=c.getTen_the_loai()%></strong>
 					<small><%=c.getMo_ta()%></small>
 				</a>

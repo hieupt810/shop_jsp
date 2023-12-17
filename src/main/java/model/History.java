@@ -2,24 +2,23 @@ package model;
 
 import java.sql.Timestamp;
 
-
 public class History {
 	private int id_history;
 	private int user_id;
-	private int ma_san_pham;
+	private int product_id;
 	private Timestamp ngay_mua;
 	private int so_luong;
 	private double thanh_tien;
-	
+
 	public History() {
 	}
-	
-	public History(int id_history, int user_id, int ma_san_pham, Timestamp ngay_mua,
+
+	public History(int id_history, int user_id, int product_id, Timestamp ngay_mua,
 			int so_luong, double thanh_tien) {
-		
+
 		this.id_history = id_history;
 		this.user_id = user_id;
-		this.ma_san_pham = ma_san_pham;
+		this.product_id = product_id;
 		this.ngay_mua = ngay_mua;
 		this.so_luong = so_luong;
 		this.thanh_tien = thanh_tien;
@@ -42,11 +41,11 @@ public class History {
 	}
 
 	public int getMa_san_pham() {
-		return ma_san_pham;
+		return product_id;
 	}
 
-	public void setMa_san_pham(int ma_san_pham) {
-		this.ma_san_pham = ma_san_pham;
+	public void setMa_san_pham(int product_id) {
+		this.product_id = product_id;
 	}
 
 	public Timestamp getNgay_mua() {
@@ -64,7 +63,7 @@ public class History {
 	public void setSo_luong(int so_luong) {
 		this.so_luong = so_luong;
 	}
-	
+
 	public double getThanh_tien() {
 		return thanh_tien;
 	}
@@ -72,6 +71,5 @@ public class History {
 	public void setThanh_tien(double thanh_tien) {
 		this.thanh_tien = thanh_tien;
 	}
-	
 
 }

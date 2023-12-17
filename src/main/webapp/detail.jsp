@@ -141,9 +141,9 @@ import="java.text.NumberFormat"%>
     </style>
   </head>
   <body>
-    <% String ma_san_pham = ""; if (request.getParameter("ma_san_pham") != null)
-    { ma_san_pham = request.getParameter("ma_san_pham"); } ProductDAO productDAO
-    = new ProductDAO(); NumberFormat nf = NumberFormat.getInstance();
+    <% String product_id = ""; if (request.getParameter("product_id") != null) {
+    product_id = request.getParameter("product_id"); } ProductDAO productDAO =
+    new ProductDAO(); NumberFormat nf = NumberFormat.getInstance();
     nf.setMinimumFractionDigits(0); %>
     <div class="nav-container">
       <nav>
@@ -174,21 +174,21 @@ import="java.text.NumberFormat"%>
     <main>
       <div class="img-container">
         <img
-          src="sanpham/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham)).getHinh_anh()%>"
+          src="sanpham/<%=productDAO.getProduct(Integer.parseInt(product_id)).getHinh_anh()%>"
         />
       </div>
 
       <div class="info-container">
         <h4>
-          <%=productDAO.getProduct(Integer.parseInt(ma_san_pham)).getTen_san_pham()%>
+          <%=productDAO.getProduct(Integer.parseInt(product_id)).getTen_san_pham()%>
         </h4>
         <h5>
           Hãng xuất xứ:
-          <%=productDAO.getProduct(Integer.parseInt(ma_san_pham)).getHang_san_xuat()%>
+          <%=productDAO.getProduct(Integer.parseInt(product_id)).getHang_san_xuat()%>
         </h5>
         <h5>
           Giá hiện tại:
-          <%=nf.format(productDAO.getProduct(Integer.parseInt(ma_san_pham)).getGia_ban())%>
+          <%=nf.format(productDAO.getProduct(Integer.parseInt(product_id)).getGia_ban())%>
           VNĐ
         </h5>
 
@@ -209,7 +209,7 @@ import="java.text.NumberFormat"%>
           <form action="GioHangServlet" method="post">
             <input type="number" min="1" value="1" name="soluong" />
             <input type="hidden" value="setCart" name="command" />
-            <input type="hidden" value="<%=ma_san_pham %>" name="ma_san_pham" />
+            <input type="hidden" value="<%=product_id %>" name="product_id" />
             <input type="submit" value="Thêm vào giỏ hàng" />
           </form>
         </div>

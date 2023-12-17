@@ -36,10 +36,10 @@ public class CategoryDAO {
 					.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				int ma_the_loai = rs.getInt("ma_the_loai");
-				String ten_the_loai = rs.getString("ten_the_loai");
+				int category_id = rs.getInt("category_id");
+				String category_name = rs.getString("category_name");
 				String mo_ta = rs.getString("mo_ta");
-				list.add(new Category(ma_the_loai, ten_the_loai, mo_ta));
+				list.add(new Category(category_id, category_name, mo_ta));
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -51,15 +51,12 @@ public class CategoryDAO {
 	public static void main(String[] args) {
 		CategoryDAO dao = new CategoryDAO();
 		Category c = new Category(8, "Samsung", "DT");
-		// dao.addCategory(c);
-		// System.out.println(dao.getList());
-		// dao.delCategory(10);
 		dao.updateCategory(c);
 	}
 
-	public static void delCategory(int ma_the_loai) {
+	public static void deleteCategory(int category_id) {
 		Connection con = DBConnect.getConnecttion();
-		String sql = "delete from category where ma_the_loai='" + ma_the_loai
+		String sql = "delete from category where category_id='" + category_id
 				+ "'";
 		try {
 			PreparedStatement ps = (PreparedStatement) con
@@ -74,17 +71,17 @@ public class CategoryDAO {
 
 	public static Category getCategory(int id) {
 		Connection con = DBConnect.getConnecttion();
-		String sql = "select * from category where ma_the_loai='" + id + "'";
+		String sql = "select * from category where category_id='" + id + "'";
 		Category c = new Category();
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				int ma_the_loai = rs.getInt("ma_the_loai");
-				String ten_the_loai = rs.getString("ten_the_loai");
+				int category_id = rs.getInt("category_id");
+				String category_name = rs.getString("category_name");
 				String mo_ta = rs.getString("mo_ta");
-				c = new Category(ma_the_loai, ten_the_loai, mo_ta);
+				c = new Category(category_id, category_name, mo_ta);
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -95,7 +92,7 @@ public class CategoryDAO {
 
 	public static void updateCategory(Category c) {
 		Connection con = DBConnect.getConnecttion();
-		String sql = "update category set ten_the_loai=?, mo_ta=? where ma_the_loai=?";
+		String sql = "update category set category_name=?, mo_ta=? where category_id=?";
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(sql);

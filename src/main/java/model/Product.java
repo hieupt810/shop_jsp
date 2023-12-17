@@ -2,9 +2,9 @@ package model;
 
 public class Product {
 
-	private int ma_san_pham;
-	private int ma_the_loai;
-	private String ten_san_pham;
+	private int product_id;
+	private int category_id;
+	private String product_name;
 	private String hinh_anh;
 	private Double gia_ban;
 	private String hang_san_xuat;
@@ -13,12 +13,12 @@ public class Product {
 	public Product() {
 	}
 
-	public Product(int ma_san_pham, int ma_the_loai, String ten_san_pham,
+	public Product(int product_id, int category_id, String product_name,
 			String hinh_anh, Double gia_ban, String hang_san_xuat,
 			String thong_tin) {
-		this.ma_san_pham = ma_san_pham;
-		this.ma_the_loai = ma_the_loai;
-		this.ten_san_pham = ten_san_pham;
+		this.product_id = product_id;
+		this.category_id = category_id;
+		this.product_name = product_name;
 		this.hinh_anh = hinh_anh;
 		this.gia_ban = gia_ban;
 		this.hang_san_xuat = hang_san_xuat;
@@ -26,19 +26,19 @@ public class Product {
 	}
 
 	public int getMa_san_pham() {
-		return ma_san_pham;
+		return product_id;
 	}
 
-	public void setMa_san_pham(int ma_san_pham) {
-		this.ma_san_pham = ma_san_pham;
+	public void setMa_san_pham(int product_id) {
+		this.product_id = product_id;
 	}
 
 	public String getTen_san_pham() {
-		return ten_san_pham;
+		return product_name;
 	}
 
-	public void setTen_san_pham(String ten_san_pham) {
-		this.ten_san_pham = ten_san_pham;
+	public void setTen_san_pham(String product_name) {
+		this.product_name = product_name;
 	}
 
 	public String getHinh_anh() {
@@ -73,13 +73,12 @@ public class Product {
 		this.thong_tin = thong_tin;
 	}
 
-
 	public int getMa_the_loai() {
-		return ma_the_loai;
+		return category_id;
 	}
 
-	public void setMa_the_loai(int ma_the_loai) {
-		this.ma_the_loai = ma_the_loai;
+	public void setMa_the_loai(int category_id) {
+		this.category_id = category_id;
 	}
 
 }

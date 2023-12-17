@@ -178,9 +178,9 @@
 				  ProductDAO productDAO = new ProductDAO();
 				  List<Product> list = new ArrayList<Product>();
 				  list = productDAO.getList();
-				  String ma_the_loai = null;
-				  if (request.getParameter("ma_the_loai") != null) {
-					  ma_the_loai = request.getParameter("ma_the_loai");
+				  String category_id = null;
+				  if (request.getParameter("category_id") != null) {
+					  category_id = request.getParameter("category_id");
 				  }
 				  NumberFormat nf = NumberFormat.getInstance();
 				  nf.setMinimumFractionDigits(0);
@@ -188,11 +188,11 @@
 
         <div class="list">
           <%
-            if (ma_the_loai != null) {
-              for (Product p : productDAO.getListByCategory(Integer.parseInt(ma_the_loai))) {
+            if (category_id != null) {
+              for (Product p : productDAO.getListByCategory(Integer.parseInt(category_id))) {
           %>
           <div class="item">
-              <a href="detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>">
+              <a href="detail.jsp?product_id=<%=p.getMa_san_pham()%>">
                 <div class="img-container">
                   <img src="sanpham/<%=p.getHinh_anh()%>" />
                 </div>
@@ -211,7 +211,7 @@
 							for (Product p : productDAO.getList()) {
 					%>
           <div class="item">
-              <a href="detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>">
+              <a href="detail.jsp?product_id=<%=p.getMa_san_pham()%>">
                 <div class="img-container">
                   <img src="sanpham/<%=p.getHinh_anh()%>" />
                 </div>

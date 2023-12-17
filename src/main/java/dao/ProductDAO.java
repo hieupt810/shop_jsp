@@ -31,7 +31,6 @@ public class ProductDAO {
 
 	}
 
-
 	public static List<Product> getList() {
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from product";
@@ -41,14 +40,14 @@ public class ProductDAO {
 					.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				int ma_san_pham = rs.getInt("ma_san_pham");
-				int ma_the_loai = rs.getInt("ma_the_loai");
-				String ten_san_pham = rs.getString("ten_san_pham");
+				int product_id = rs.getInt("product_id");
+				int category_id = rs.getInt("category_id");
+				String product_name = rs.getString("product_name");
 				String hinh_anh = rs.getString("hinh_anh");
 				Double gia_ban = rs.getDouble("gia_ban");
 				String hang_san_xuat = rs.getString("hang_san_xuat");
 				String thong_tin = rs.getString("thong_tin");
-				list.add(new Product(ma_san_pham, ma_the_loai, ten_san_pham,
+				list.add(new Product(product_id, category_id, product_name,
 						hinh_anh, gia_ban, hang_san_xuat, thong_tin));
 			}
 			con.close();
@@ -58,24 +57,23 @@ public class ProductDAO {
 		return list;
 	}
 
-
 	public static List<Product> getListByCategory(int id) {
 		Connection con = DBConnect.getConnecttion();
-		String sql = "select * from product where ma_the_loai='" + id + "'";
+		String sql = "select * from product where category_id='" + id + "'";
 		List<Product> list = new ArrayList<Product>();
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				int ma_san_pham = rs.getInt("ma_san_pham");
-				int ma_the_loai = rs.getInt("ma_the_loai");
-				String ten_san_pham = rs.getString("ten_san_pham");
+				int product_id = rs.getInt("product_id");
+				int category_id = rs.getInt("category_id");
+				String product_name = rs.getString("product_name");
 				String hinh_anh = rs.getString("hinh_anh");
 				Double gia_ban = rs.getDouble("gia_ban");
 				String hang_san_xuat = rs.getString("hang_san_xuat");
 				String thong_tin = rs.getString("thong_tin");
-				list.add(new Product(ma_san_pham, ma_the_loai, ten_san_pham,
+				list.add(new Product(product_id, category_id, product_name,
 						hinh_anh, gia_ban, hang_san_xuat, thong_tin));
 			}
 			con.close();
@@ -85,24 +83,23 @@ public class ProductDAO {
 		return list;
 	}
 
-
 	public static Product getProduct(int id) {
 		Connection con = DBConnect.getConnecttion();
-		String sql = "select * from product where ma_san_pham='" + id + "'";
+		String sql = "select * from product where product_id='" + id + "'";
 		Product p = new Product();
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				int ma_san_pham = rs.getInt("ma_san_pham");
-				int ma_the_loai = rs.getInt("ma_the_loai");
-				String ten_san_pham = rs.getString("ten_san_pham");
+				int product_id = rs.getInt("product_id");
+				int category_id = rs.getInt("category_id");
+				String product_name = rs.getString("product_name");
 				String hinh_anh = rs.getString("hinh_anh");
 				Double gia_ban = rs.getDouble("gia_ban");
 				String hang_san_xuat = rs.getString("hang_san_xuat");
 				String thong_tin = rs.getString("thong_tin");
-				p = new Product(ma_san_pham, ma_the_loai, ten_san_pham,
+				p = new Product(product_id, category_id, product_name,
 						hinh_anh, gia_ban, hang_san_xuat, thong_tin);
 			}
 			con.close();
@@ -113,25 +110,27 @@ public class ProductDAO {
 	}
 
 	public static void main(String[] args) {
-		Product p = new Product(0, 1, "S6", "da", 500000.0 ,"","");
+		Product p = new Product(0, 1, "S6", "da", 500000.0, "", "");
 		ProductDAO productDAO = new ProductDAO();
 		// productDAO.addProduct(p);
 		// System.out.println(productDAO.getList());
 		System.out.println(productDAO.getListByCategory(1));
 	}
 
-
-	public static List<Product> searchList(String ten_san_pham, String ten_the_loai) {
+	public static List<Product> searchList(String product_name, String category_name) {
 		Connection con = DBConnect.getConnecttion();
-		String sql=null;
-		if(!ten_san_pham.equals("") && !ten_the_loai.equals("")){
-			sql = "SELECT * FROM product, category WHERE ten_san_pham= N'"+ ten_san_pham +"' AND product.ma_the_loai = category.ma_the_loai AND ten_the_loai=N'"+ten_the_loai+"'";
-		}else{
-			if(ten_san_pham.equals("")){
-				sql="SELECT * FROM product, category WHERE product.ma_the_loai = category.ma_the_loai AND ten_the_loai=N'"+ten_the_loai+"'";
-			}else{
-				if(ten_the_loai.equals("")){
-					sql="SELECT * FROM product, category WHERE ten_san_pham= N'"+ten_san_pham+"' AND product.ma_the_loai = category.ma_the_loai";
+		String sql = null;
+		if (!product_name.equals("") && !category_name.equals("")) {
+			sql = "SELECT * FROM product, category WHERE product_name= N'" + product_name
+					+ "' AND product.category_id = category.category_id AND category_name=N'" + category_name + "'";
+		} else {
+			if (product_name.equals("")) {
+				sql = "SELECT * FROM product, category WHERE product.category_id = category.category_id AND category_name=N'"
+						+ category_name + "'";
+			} else {
+				if (category_name.equals("")) {
+					sql = "SELECT * FROM product, category WHERE product_name= N'" + product_name
+							+ "' AND product.category_id = category.category_id";
 				}
 			}
 		}
@@ -141,14 +140,14 @@ public class ProductDAO {
 					.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				int ma_san_pham = rs.getInt("ma_san_pham");
-				int ma_the_loai = rs.getInt("ma_the_loai");
-				ten_san_pham = rs.getString("ten_san_pham");
+				int product_id = rs.getInt("product_id");
+				int category_id = rs.getInt("category_id");
+				product_name = rs.getString("product_name");
 				String hinh_anh = rs.getString("hinh_anh");
 				Double gia_ban = rs.getDouble("gia_ban");
 				String hang_san_xuat = rs.getString("hang_san_xuat");
 				String thong_tin = rs.getString("thong_tin");
-				list.add(new Product(ma_san_pham, ma_the_loai, ten_san_pham,
+				list.add(new Product(product_id, category_id, product_name,
 						hinh_anh, gia_ban, hang_san_xuat, thong_tin));
 			}
 			con.close();
@@ -156,7 +155,6 @@ public class ProductDAO {
 			e.printStackTrace();
 		}
 		return list;
-		
-	
+
 	}
 }

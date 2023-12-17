@@ -174,15 +174,14 @@
 		</h1>
 		<div></div>
 				<%
-					ProductDAO productDAO = new ProductDAO();
-						
-											NumberFormat nf = NumberFormat.getInstance();
-											nf.setMinimumIntegerDigits(0);
-											double total = 0;
-											ArrayList<Cart> cart=null;
-											if(session.getAttribute("cart")!=null){
-											cart = (ArrayList<Cart>) session
-													.getAttribute("cart");}
+					ProductDAO productDAO = new ProductDAO();		
+					NumberFormat nf = NumberFormat.getInstance();
+					nf.setMinimumIntegerDigits(0);
+					double total = 0;
+					ArrayList<Cart> cart=null;
+					if (session.getAttribute("cart")!=null) {
+						cart = (ArrayList<Cart>) session.getAttribute("cart");
+					}
 				%>
 				<%
 					if (cart != null) {
@@ -207,16 +206,16 @@
 						.getMa_san_pham()).getGia_ban())%>VNĐ
 					</div>
 					<div style="height: 30px;width: 120;text-align: center; border: 1px solid #e4e4e7;border-radius: 5px; display: flex;margin-top: 5px;">
-						<div style="width: 30px;"><a class="cart_quantity_up" href="GioHangServlet?command=deleteCart&ma_san_pham=<%=c.getP().getMa_san_pham()%>"> - </a></div>
+						<div style="width: 30px;"><a class="cart_quantity_up" href="GioHangServlet?command=deleteCart&product_id=<%=c.getP().getMa_san_pham()%>"> - </a></div>
 						<div style="width: 30px;border: 1px solid #e4e4e7;"><%=c.getQuantity()%></div>
-						<div style="width: 30px;"><a class="cart_quantity_up" href="GioHangServlet?command=addCart&ma_san_pham=<%=c.getP().getMa_san_pham()%>"> + </a></div>
+						<div style="width: 30px;"><a class="cart_quantity_up" href="GioHangServlet?command=addCart&product_id=<%=c.getP().getMa_san_pham()%>"> + </a></div>
 					</div>
 					<div class="item-text">
 						<%=nf.format(productDAO.getProduct(c.getP().getMa_san_pham())
 						.getGia_ban()*c.getQuantity())%>VNĐ				
 					<div style="background-color: crimson; border-radius: 25px;">
 						<a
-						href="GioHangServlet?command=removeCart&ma_san_pham=<%=c.getP().getMa_san_pham()%>" style="color: white;">Hủy</a>
+						href="GioHangServlet?command=removeCart&product_id=<%=c.getP().getMa_san_pham()%>" style="color: white;">Hủy</a>
 					</div>
 					</div>
 					
