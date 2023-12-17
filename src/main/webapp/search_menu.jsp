@@ -26,12 +26,12 @@
                         <p>
                         <label for="tensp">Tên sản phẩm</label>
                         <br>
-                        <input accept-charset="utf-8" type="text" name="ten_san_pham" style="width:97%; border: 1px solid #e4e4e7; border-radius: 2px;">
+                        <input accept-charset="utf-8" type="text" name="ten_san_pham" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         </p>
                         <p>
                         <label for="theloai">Thể loại</label>
                         <br>
-                        <select accept-charset="utf-8" name="ten_the_loai" style="width:100%">
+                        <select accept-charset="utf-8" name="ten_the_loai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         	<option style="border: 1px solid #e4e4e7; border-radius: 2px;" value="" selected="selected">--Chọn thể loại--</option>
                         	<%
 				for (Category c : list) {
@@ -41,7 +41,7 @@
                         	<%} %>
                         </select>
                         </p>
-                        <input type="submit" value="Tìm kiếm" name="timKiem">
+                        <button type="submit" class="mt-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" value="Tìm kiếm" name="timKiem"> Tìm kiếm</button>
                 	</form>
                 	</li>
                 	<li style="color: red"><%=err%></li>
