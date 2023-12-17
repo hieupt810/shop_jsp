@@ -108,6 +108,9 @@
         margin-bottom: 20px;
         border-radius: 12px;
         border: 1px solid #e4e4e7;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .item-text {
