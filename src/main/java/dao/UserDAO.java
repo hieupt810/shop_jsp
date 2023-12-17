@@ -50,11 +50,6 @@ public class UserDAO {
 	}
 
 	public static void main(String[] args) {
-		UserDAO dao = new UserDAO();
-		// dao.addUser(new User(0, "admin", "12345", null, "admin", "1", null, null,
-		// null));
-		// System.out.println(dao.checkUser("admin"));
-		// System.out.println(dao.login("admin", "12345"));
 	}
 
 	public static boolean login(String username, String password) {

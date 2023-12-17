@@ -49,9 +49,8 @@ public class CategoryDAO {
 	}
 
 	public static void main(String[] args) {
-		CategoryDAO dao = new CategoryDAO();
 		Category c = new Category(8, "Samsung", "DT");
-		dao.updateCategory(c);
+		CategoryDAO.updateCategory(c);
 	}
 
 	public static void deleteCategory(int category_id) {

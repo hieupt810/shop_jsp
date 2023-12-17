@@ -110,11 +110,7 @@ public class ProductDAO {
 	}
 
 	public static void main(String[] args) {
-		Product p = new Product(0, 1, "S6", "da", 500000.0, "", "");
-		ProductDAO productDAO = new ProductDAO();
-		// productDAO.addProduct(p);
-		// System.out.println(productDAO.getList());
-		System.out.println(productDAO.getListByCategory(1));
+		System.out.println(ProductDAO.getListByCategory(1));
 	}
 
 	public static List<Product> searchList(String product_name, String category_name) {
