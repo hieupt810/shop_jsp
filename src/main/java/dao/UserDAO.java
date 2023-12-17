@@ -6,10 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Category;
 import model.User;
-public class UserDAO {
 
+public class UserDAO {
 
 	public static void addUser(User u) {
 		Connection con = DBConnect.getConnecttion();
@@ -33,7 +32,6 @@ public class UserDAO {
 		}
 	}
 
-
 	public static boolean checkUser(String username) {
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from user where username='" + username + "'";
@@ -53,11 +51,11 @@ public class UserDAO {
 
 	public static void main(String[] args) {
 		UserDAO dao = new UserDAO();
-//		dao.addUser(new User(0, "admin", "12345", null, "admin", "1", null, null, null));
-//		System.out.println(dao.checkUser("admin"));
-//		System.out.println(dao.login("admin", "12345"));
+		// dao.addUser(new User(0, "admin", "12345", null, "admin", "1", null, null,
+		// null));
+		// System.out.println(dao.checkUser("admin"));
+		// System.out.println(dao.login("admin", "12345"));
 	}
-
 
 	public static boolean login(String username, String password) {
 		Connection con = null;
@@ -78,10 +76,9 @@ public class UserDAO {
 		return false;
 	}
 
-
 	public static void updateUser(User u) {
 		Connection con = DBConnect.getConnecttion();
-		String sql = "update user set user_id=?, password=?, ngaysinh=?, gioitinh=?, email=?, sdt=?, diachi=?, role=? where username=?";
+		String sql = "update user set user_id=?, password=?, date_of_birth=?, sex=?, email=?, phone_number=?, address=?, role=? where username=?";
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(sql);
@@ -99,9 +96,8 @@ public class UserDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-	}
 
+	}
 
 	public static User getUser(String name) {
 		Connection con = DBConnect.getConnecttion();
@@ -112,16 +108,16 @@ public class UserDAO {
 					.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				int user_id= rs.getInt("user_id");
+				int user_id = rs.getInt("user_id");
 				String username = rs.getString("username");
 				String password = rs.getString("password");
-				Date ngaysinh = rs.getDate("ngaysinh");
-				String gioitinh = rs.getString("gioitinh");
+				Date date_of_birth = rs.getDate("date_of_birth");
+				String sex = rs.getString("sex");
 				String email = rs.getString("email");
-				String sdt = rs.getString("sdt");
-				String diachi = rs.getString("diachi");
+				String phone_number = rs.getString("phone_number");
+				String address = rs.getString("address");
 				String role = rs.getString("role");
-				u = new User(user_id, username, password, ngaysinh, gioitinh, email, sdt, diachi, role);
+				u = new User(user_id, username, password, date_of_birth, sex, email, phone_number, address, role);
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -129,6 +125,5 @@ public class UserDAO {
 		}
 		return u;
 	}
-
 
 }

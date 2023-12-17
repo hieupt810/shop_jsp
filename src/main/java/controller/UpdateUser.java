@@ -33,20 +33,20 @@ public class UpdateUser extends HttpServlet {
 		String user_id = request.getParameter("id");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		java.sql.Date ngaysinh = null;
+		java.sql.Date date_of_birth = null;
 		try {
-			ngaysinh = new java.sql.Date(
-					(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("ngaysinh"))).getTime());
+			date_of_birth = new java.sql.Date(
+					(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date_of_birth"))).getTime());
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
-		String gioitinh = request.getParameter("gioitinh");
+		String sex = request.getParameter("sex");
 		String email = request.getParameter("email");
-		String sdt = request.getParameter("sdt");
-		String diachi = request.getParameter("diachi");
+		String phone_number = request.getParameter("phone_number");
+		String address = request.getParameter("address");
 		String err = "";
 		String url = "/update_user.jsp";
-		if (password.equals("") || email.equals("") || sdt.equals("") || diachi.equals("")) {
+		if (password.equals("") || email.equals("") || phone_number.equals("") || address.equals("")) {
 			err += "Phải nhập đầy đủ thông tin!";
 		} else {
 			Pattern pattenObj = Pattern.compile(
@@ -56,7 +56,7 @@ public class UpdateUser extends HttpServlet {
 				err += "Email sai định dạng!";
 			} else {
 				Pattern pattenObj2 = Pattern.compile("(09)\\d{8}|(01)\\d{9}");
-				Matcher matcherObj2 = pattenObj2.matcher(sdt);
+				Matcher matcherObj2 = pattenObj2.matcher(phone_number);
 				if (!matcherObj2.matches()) {
 					err += "Sđt sai định dạng!";
 				}
@@ -67,7 +67,9 @@ public class UpdateUser extends HttpServlet {
 		}
 		try {
 			if (err.length() == 0) {
-				User u = new User(Integer.parseInt(user_id), username, password, ngaysinh, gioitinh, email, sdt, diachi,
+				User u = new User(Integer.parseInt(user_id), username, password, date_of_birth, sex, email,
+						phone_number,
+						address,
 						"2");
 				UserBO.updateUser(u);
 				url = "/index.jsp";

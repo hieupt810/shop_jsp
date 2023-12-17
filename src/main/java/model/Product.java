@@ -5,24 +5,24 @@ public class Product {
 	private int product_id;
 	private int category_id;
 	private String product_name;
-	private String hinh_anh;
-	private Double gia_ban;
-	private String hang_san_xuat;
-	private String thong_tin;
+	private String product_image;
+	private Double product_price;
+	private String manufactor;
+	private String information;
 
 	public Product() {
 	}
 
 	public Product(int product_id, int category_id, String product_name,
-			String hinh_anh, Double gia_ban, String hang_san_xuat,
-			String thong_tin) {
+			String product_image, Double product_price, String manufactor,
+			String information) {
 		this.product_id = product_id;
 		this.category_id = category_id;
 		this.product_name = product_name;
-		this.hinh_anh = hinh_anh;
-		this.gia_ban = gia_ban;
-		this.hang_san_xuat = hang_san_xuat;
-		this.thong_tin = thong_tin;
+		this.product_image = product_image;
+		this.product_price = product_price;
+		this.manufactor = manufactor;
+		this.information = information;
 	}
 
 	public int getMa_san_pham() {
@@ -42,35 +42,35 @@ public class Product {
 	}
 
 	public String getHinh_anh() {
-		return hinh_anh;
+		return product_image;
 	}
 
-	public void setHinh_anh(String hinh_anh) {
-		this.hinh_anh = hinh_anh;
+	public void setHinh_anh(String product_image) {
+		this.product_image = product_image;
 	}
 
 	public Double getGia_ban() {
-		return gia_ban;
+		return product_price;
 	}
 
-	public void setGia_ban(Double gia_ban) {
-		this.gia_ban = gia_ban;
+	public void setGia_ban(Double product_price) {
+		this.product_price = product_price;
 	}
 
 	public String getHang_san_xuat() {
-		return hang_san_xuat;
+		return manufactor;
 	}
 
-	public void setHang_san_xuat(String hang_san_xuat) {
-		this.hang_san_xuat = hang_san_xuat;
+	public void setHang_san_xuat(String manufactor) {
+		this.manufactor = manufactor;
 	}
 
 	public String getThong_tin() {
-		return thong_tin;
+		return information;
 	}
 
-	public void getThong_tin(String thong_tin) {
-		this.thong_tin = thong_tin;
+	public void getThong_tin(String information) {
+		this.information = information;
 	}
 
 	public int getMa_the_loai() {

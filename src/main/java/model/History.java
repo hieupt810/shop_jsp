@@ -6,22 +6,22 @@ public class History {
 	private int id_history;
 	private int user_id;
 	private int product_id;
-	private Timestamp ngay_mua;
-	private int so_luong;
-	private double thanh_tien;
+	private Timestamp bought_date;
+	private int quantity;
+	private double price;
 
 	public History() {
 	}
 
-	public History(int id_history, int user_id, int product_id, Timestamp ngay_mua,
-			int so_luong, double thanh_tien) {
+	public History(int id_history, int user_id, int product_id, Timestamp bought_date,
+			int quantity, double price) {
 
 		this.id_history = id_history;
 		this.user_id = user_id;
 		this.product_id = product_id;
-		this.ngay_mua = ngay_mua;
-		this.so_luong = so_luong;
-		this.thanh_tien = thanh_tien;
+		this.bought_date = bought_date;
+		this.quantity = quantity;
+		this.price = price;
 	}
 
 	public int getId_history() {
@@ -49,27 +49,27 @@ public class History {
 	}
 
 	public Timestamp getNgay_mua() {
-		return ngay_mua;
+		return bought_date;
 	}
 
-	public void setNgay_mua(Timestamp ngay_mua) {
-		this.ngay_mua = ngay_mua;
+	public void setNgay_mua(Timestamp bought_date) {
+		this.bought_date = bought_date;
 	}
 
 	public int getSo_luong() {
-		return so_luong;
+		return quantity;
 	}
 
-	public void setSo_luong(int so_luong) {
-		this.so_luong = so_luong;
+	public void setSo_luong(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public double getThanh_tien() {
-		return thanh_tien;
+		return price;
 	}
 
-	public void setThanh_tien(double thanh_tien) {
-		this.thanh_tien = thanh_tien;
+	public void setThanh_tien(double price) {
+		this.price = price;
 	}
 
 }

@@ -45,10 +45,10 @@ public class HistoryDAO {
 				int id_history = rs.getInt("id_history");
 				int user_id = rs.getInt("user_id");
 				int product_id = rs.getInt("product_id");
-				Timestamp ngay_mua = rs.getTimestamp("ngay_mua");
-				int so_luong = rs.getInt("so_luong");
-				double thanh_tien = rs.getDouble("thanh_tien");
-				list.add(new History(id_history, user_id, product_id, ngay_mua, so_luong, thanh_tien));
+				Timestamp bought_date = rs.getTimestamp("bought_date");
+				int quantity = rs.getInt("quantity");
+				double price = rs.getDouble("price");
+				list.add(new History(id_history, user_id, product_id, bought_date, quantity, price));
 			}
 			con.close();
 		} catch (SQLException e) {

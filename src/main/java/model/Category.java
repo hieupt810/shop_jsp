@@ -4,15 +4,15 @@ public class Category {
 
 	private int category_id;
 	private String category_name;
-	private String mo_ta;
+	private String description;
 
 	public Category() {
 	}
 
-	public Category(int category_id, String category_name, String mo_ta) {
+	public Category(int category_id, String category_name, String description) {
 		this.category_id = category_id;
 		this.category_name = category_name;
-		this.mo_ta = mo_ta;
+		this.description = description;
 	}
 
 	public int getMa_the_loai() {
@@ -32,11 +32,11 @@ public class Category {
 	}
 
 	public String getMo_ta() {
-		return mo_ta;
+		return description;
 	}
 
-	public void setMo_ta(String mo_ta) {
-		this.mo_ta = mo_ta;
+	public void setMo_ta(String description) {
+		this.description = description;
 	}
 
 }

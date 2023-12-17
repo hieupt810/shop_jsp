@@ -26,7 +26,7 @@
                         <p>
                         <label for="tensp">Tên sản phẩm</label>
                         <br>
-                        <input accept-charset="utf-8" type="text" name="ten_san_pham" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <input accept-charset="utf-8" type="text" name="product_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         </p>
                         <p>
                         <label for="theloai">Thể loại</label>

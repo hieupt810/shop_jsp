@@ -38,8 +38,8 @@ public class CategoryDAO {
 			while (rs.next()) {
 				int category_id = rs.getInt("category_id");
 				String category_name = rs.getString("category_name");
-				String mo_ta = rs.getString("mo_ta");
-				list.add(new Category(category_id, category_name, mo_ta));
+				String description = rs.getString("description");
+				list.add(new Category(category_id, category_name, description));
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -80,8 +80,8 @@ public class CategoryDAO {
 			while (rs.next()) {
 				int category_id = rs.getInt("category_id");
 				String category_name = rs.getString("category_name");
-				String mo_ta = rs.getString("mo_ta");
-				c = new Category(category_id, category_name, mo_ta);
+				String description = rs.getString("description");
+				c = new Category(category_id, category_name, description);
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -92,7 +92,7 @@ public class CategoryDAO {
 
 	public static void updateCategory(Category c) {
 		Connection con = DBConnect.getConnecttion();
-		String sql = "update category set category_name=?, mo_ta=? where category_id=?";
+		String sql = "update category set category_name=?, description=? where category_id=?";
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(sql);

@@ -38,21 +38,22 @@ public class RegisterServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		java.sql.Date ngaysinh = null;
+		java.sql.Date date_of_birth = null;
 		try {
-			ngaysinh = new java.sql.Date(
-					(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("ngaysinh"))).getTime());
+			date_of_birth = new java.sql.Date(
+					(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date_of_birth"))).getTime());
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
-		String gioitinh = request.getParameter("gioitinh");
+		String sex = request.getParameter("sex");
 		String email = request.getParameter("email");
-		String sdt = request.getParameter("sdt");
-		String diachi = request.getParameter("diachi");
+		String phone_number = request.getParameter("phone_number");
+		String address = request.getParameter("address");
 		System.out.println(username);
 		String err = "";
 		String url = "/register.jsp";
-		if (username.equals("") || password.equals("") || email.equals("") || diachi.equals("") || sdt.equals("")) {
+		if (username.equals("") || password.equals("") || email.equals("") || address.equals("")
+				|| phone_number.equals("")) {
 			err += "Phải nhập đầy đủ thông tin!";
 		} else {
 			if (UserDAO.checkUser(username) == true) {
@@ -74,7 +75,7 @@ public class RegisterServlet extends HttpServlet {
 			if (err.length() == 0) {
 				HttpSession session = request.getSession();
 				session.setAttribute("cart", cart);
-				UserDAO.addUser(new User(0, username, password, ngaysinh, gioitinh, email, sdt, diachi, "2"));
+				UserDAO.addUser(new User(0, username, password, date_of_birth, sex, email, phone_number, address, "2"));
 				UserDAO.login(username, password);
 				Cookie loginCookie = new Cookie("username", username);
 				loginCookie.setMaxAge(30 * 60);

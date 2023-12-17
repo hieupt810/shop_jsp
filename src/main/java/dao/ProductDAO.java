@@ -43,12 +43,12 @@ public class ProductDAO {
 				int product_id = rs.getInt("product_id");
 				int category_id = rs.getInt("category_id");
 				String product_name = rs.getString("product_name");
-				String hinh_anh = rs.getString("hinh_anh");
-				Double gia_ban = rs.getDouble("gia_ban");
-				String hang_san_xuat = rs.getString("hang_san_xuat");
-				String thong_tin = rs.getString("thong_tin");
+				String product_image = rs.getString("product_image");
+				Double product_price = rs.getDouble("product_price");
+				String manufactor = rs.getString("manufactor");
+				String information = rs.getString("information");
 				list.add(new Product(product_id, category_id, product_name,
-						hinh_anh, gia_ban, hang_san_xuat, thong_tin));
+						product_image, product_price, manufactor, information));
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -69,12 +69,12 @@ public class ProductDAO {
 				int product_id = rs.getInt("product_id");
 				int category_id = rs.getInt("category_id");
 				String product_name = rs.getString("product_name");
-				String hinh_anh = rs.getString("hinh_anh");
-				Double gia_ban = rs.getDouble("gia_ban");
-				String hang_san_xuat = rs.getString("hang_san_xuat");
-				String thong_tin = rs.getString("thong_tin");
+				String product_image = rs.getString("product_image");
+				Double product_price = rs.getDouble("product_price");
+				String manufactor = rs.getString("manufactor");
+				String information = rs.getString("information");
 				list.add(new Product(product_id, category_id, product_name,
-						hinh_anh, gia_ban, hang_san_xuat, thong_tin));
+						product_image, product_price, manufactor, information));
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -95,12 +95,12 @@ public class ProductDAO {
 				int product_id = rs.getInt("product_id");
 				int category_id = rs.getInt("category_id");
 				String product_name = rs.getString("product_name");
-				String hinh_anh = rs.getString("hinh_anh");
-				Double gia_ban = rs.getDouble("gia_ban");
-				String hang_san_xuat = rs.getString("hang_san_xuat");
-				String thong_tin = rs.getString("thong_tin");
+				String product_image = rs.getString("product_image");
+				Double product_price = rs.getDouble("product_price");
+				String manufactor = rs.getString("manufactor");
+				String information = rs.getString("information");
 				p = new Product(product_id, category_id, product_name,
-						hinh_anh, gia_ban, hang_san_xuat, thong_tin);
+						product_image, product_price, manufactor, information);
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -143,12 +143,12 @@ public class ProductDAO {
 				int product_id = rs.getInt("product_id");
 				int category_id = rs.getInt("category_id");
 				product_name = rs.getString("product_name");
-				String hinh_anh = rs.getString("hinh_anh");
-				Double gia_ban = rs.getDouble("gia_ban");
-				String hang_san_xuat = rs.getString("hang_san_xuat");
-				String thong_tin = rs.getString("thong_tin");
+				String product_image = rs.getString("product_image");
+				Double product_price = rs.getDouble("product_price");
+				String manufactor = rs.getString("manufactor");
+				String information = rs.getString("information");
 				list.add(new Product(product_id, category_id, product_name,
-						hinh_anh, gia_ban, hang_san_xuat, thong_tin));
+						product_image, product_price, manufactor, information));
 			}
 			con.close();
 		} catch (SQLException e) {
