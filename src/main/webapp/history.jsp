@@ -169,7 +169,7 @@
         %>
         <tr>
           <th>
-            <img src="sanpham/<%=ProductBO.getProduct(h.getMa_san_pham()).getHinh_anh()%>">
+            <img src="product_images/<%=ProductBO.getProduct(h.getMa_san_pham()).getHinh_anh()%>">
           </th>
           <th>
             <%=ProductBO.getProduct(h.getMa_san_pham()).getTen_san_pham()%>

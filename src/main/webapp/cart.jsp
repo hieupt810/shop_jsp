@@ -194,7 +194,7 @@
 				<div class="item">
 					<div class="img-container">
 						<img
-							src="sanpham/<%=productDAO.getProduct(c.getP().getMa_san_pham())
+							src="product_images/<%=productDAO.getProduct(c.getP().getMa_san_pham())
 							.getHinh_anh()%>">
 					</div>
 					<div class="item-text">

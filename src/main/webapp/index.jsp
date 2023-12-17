@@ -194,7 +194,7 @@
           <div class="item">
               <a href="detail.jsp?product_id=<%=p.getMa_san_pham()%>">
                 <div class="img-container">
-                  <img src="sanpham/<%=p.getHinh_anh()%>" />
+                  <img src="product_images/<%=p.getHinh_anh()%>" />
                 </div>
 
                 <div class="item-text">
@@ -213,7 +213,7 @@
           <div class="item">
               <a href="detail.jsp?product_id=<%=p.getMa_san_pham()%>">
                 <div class="img-container">
-                  <img src="sanpham/<%=p.getHinh_anh()%>" />
+                  <img src="product_images/<%=p.getHinh_anh()%>" />
                 </div>
                 <div class="item-text">
                   <h3><%=p.getTen_san_pham()%></h3>

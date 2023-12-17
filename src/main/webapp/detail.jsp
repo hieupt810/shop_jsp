@@ -174,7 +174,7 @@ import="java.text.NumberFormat"%>
     <main>
       <div class="img-container">
         <img
-          src="sanpham/<%=productDAO.getProduct(Integer.parseInt(product_id)).getHinh_anh()%>"
+          src="product_images/<%=productDAO.getProduct(Integer.parseInt(product_id)).getHinh_anh()%>"
         />
       </div>
 
